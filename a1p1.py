@@ -1,8 +1,7 @@
 # Assignment 1 Part 1
 # Kelly Bach
 
-#/ics32/Assignment1Part1/Assignment1Part1/
-
+# L /ics32/Assignment1Part1/Assignment1Part1/ -r -s
 from pathlib import Path
 
 search = input()
@@ -22,7 +21,7 @@ def get_dir():
             return document
  
 def read_dir():
-    get_files()
+    get_files(directory)
     get_dir()
 
 def option_r():
@@ -43,13 +42,26 @@ if __name__ == '__main__':
             option = searches[2]
             if option == '-r':
                 option_r()
-            elif option == 'f':
-                get_files()
-            elif option == '-s':
-                pass
-            elif option == 'e':
-                pass
-        else: 
-            read_dir()
+            elif option == '-f':
+                get_files(directory)
+            else: 
+                read_dir()
+        if len(searches) == 4:
+            option = searches[2]
+            if option == '-s':
+                option_s()
+            elif option == '-e':
+                option_e()
+            else:
+                option_r()
+                get_files(directory)
+        if len(searches) == 5: 
+            option = searches[3]
+            if option == '-s':
+                option_r()
+                option_s()
+            elif option == '-e':
+                option_r()
+                option_e()
     elif command == 'Q':
         exit()
