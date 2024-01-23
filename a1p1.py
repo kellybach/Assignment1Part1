@@ -14,8 +14,8 @@ def get_files(dir):
         if document.is_file():
             print(document)
 
-def get_dir():
-    for document in directory.iterdir():
+def get_dir(dir):
+    for document in dir.iterdir():
         if document.is_dir():
             print(document)
             return document
@@ -24,12 +24,15 @@ def read_dir():
     get_files(directory)
     get_dir()
 
-def option_r():
-    get_files(directory)
-    for item in directory.iterdir():
+def option_r(test):
+    for item in test.iterdir():
         if item.is_dir():
             print(item)
             get_files(item)
+            option_r(item)
+                
+
+            
 
 def option_s():
     pass
@@ -41,7 +44,8 @@ if __name__ == '__main__':
         if len(searches) == 3:
             option = searches[2]
             if option == '-r':
-                option_r()
+                get_files(directory)
+                option_r(directory)
             elif option == '-f':
                 get_files(directory)
             else: 
