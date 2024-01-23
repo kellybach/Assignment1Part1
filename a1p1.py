@@ -2,6 +2,7 @@
 # Kelly Bach
 # 18576745
 # kbach3@uci.edu
+#L /ics32/Assignment1Part1/Assignment1Part1/ -s hi.txt
 
 from pathlib import Path
 
@@ -33,7 +34,8 @@ def option_r(dir):
                 
 
 def option_s():
-    pass
+    s = Path(f'~/{searches[3]}').expanduser()
+    print(s)
 
 def option_e():
     e = sorted(directory.glob(f'*.{searches[3]}'))
