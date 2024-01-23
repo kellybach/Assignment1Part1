@@ -1,1 +1,3 @@
-# Assignment1Part1
+Assignment1 Part1 - File system inspector
+Team members: Kelly Bach
+This project is for anyone looking for a way to parse through their files. By using L [filepath], the user prints all the files listed in that path. With L the user also has some subcommands. L [filepath] -r lets the user see all files including subdirectories. Replacing -r with -f allows the user to retrieve only files. The user can also type Q to quit.

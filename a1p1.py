@@ -1,7 +1,8 @@
 # Assignment 1 Part 1
 # Kelly Bach
+# 18576745
+# kbach3@uci.edu
 
-# L /ics32/Assignment1Part1/Assignment1Part1/ -r -s
 from pathlib import Path
 
 search = input()
@@ -18,26 +19,31 @@ def get_dir(dir):
     for document in dir.iterdir():
         if document.is_dir():
             print(document)
-            return document
  
 def read_dir():
     get_files(directory)
-    get_dir()
+    get_dir(directory)
 
-def option_r(test):
-    for item in test.iterdir():
+def option_r(dir):
+    for item in dir.iterdir():
         if item.is_dir():
             print(item)
             get_files(item)
             option_r(item)
                 
 
-            
-
 def option_s():
     pass
+
 def option_e():
-    pass
+    e = sorted(directory.glob(f'*.{searches[3]}'))
+    for item in e:
+        print(item)
+def option_re():
+    e = sorted(directory.glob(f'**/*.{searches[4]}'))
+    for item in e:
+        print(item)
+
 
 if __name__ == '__main__':
     if command == 'L':
@@ -57,15 +63,16 @@ if __name__ == '__main__':
             elif option == '-e':
                 option_e()
             else:
-                option_r()
                 get_files(directory)
+                option_r(directory)
+
         if len(searches) == 5: 
             option = searches[3]
             if option == '-s':
-                option_r()
+                get_files(directory)
+                option_r(directory)
                 option_s()
             elif option == '-e':
-                option_r()
-                option_e()
+                option_re()
     elif command == 'Q':
         exit()
